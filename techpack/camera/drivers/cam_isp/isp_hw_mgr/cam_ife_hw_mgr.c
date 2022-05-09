@@ -4354,6 +4354,7 @@ start_only:
 			hw_mgr_res->hw_res[0]->rdi_only_ctx =
 				ctx->is_rdi_only_context;
 		}
+
 		rc = cam_ife_hw_mgr_start_hw_res(hw_mgr_res, ctx);
 		if (rc) {
 			CAM_ERR(CAM_ISP, "Can not start IFE Mux (%d)",
