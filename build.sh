@@ -46,6 +46,9 @@ FINAL_ZIP=${ZIPNAME}-${VERSION}-${DEVICE}-KERNEL-${TANGGAL}.zip
 if [ "$1" = "--eva" ];
 then
 COMPILER=eva
+elif [ "$1" = "--nexus" ];
+then
+COMPILER=nexus
 elif [ "$1" = "--proton" ];
 then
 COMPILER=proton
@@ -65,6 +68,12 @@ function cloneTC() {
 	then
 	post_msg " Cloning Neutron Clang ToolChain "
 	git clone --depth=1  https://gitlab.com/dakkshesh07/neutron-clang clang
+	PATH="${KERNEL_DIR}/clang/bin:$PATH"
+
+	elif [ $COMPILER = "nexus" ];
+	then
+	post_msg " Cloning Nexus Clang ToolChain "
+	git clone --depth=1  https://gitlab.com/Project-Nexus/nexus-clang.git clang
 	PATH="${KERNEL_DIR}/clang/bin:$PATH"
 
 	elif [ $COMPILER = "proton" ];
